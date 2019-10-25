@@ -41,10 +41,6 @@
       <groupId>com.google.api.grpc</groupId>
       <artifactId>proto-google-common-protos</artifactId>
     </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>google-cloud-core-grpc</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>com.google.api.grpc</groupId>
@@ -69,6 +65,10 @@
     <dependency>
       <groupId>org.threeten</groupId>
       <artifactId>threetenbp</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-core</artifactId>
     </dependency>
 
     <!-- Test dependencies -->
