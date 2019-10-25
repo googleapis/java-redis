@@ -74,7 +74,6 @@
     <threeten.version>1.4.0</threeten.version>
     <javax.annotations.version>1.3.2</javax.annotations.version>
     <animal-sniffer.version>1.18</animal-sniffer.version>
-    <google.core-grpc.version>1.91.2</google.core-grpc.version>
   </properties>
 
   <dependencyManagement>
@@ -103,11 +102,6 @@
         <groupId>com.google.cloud</groupId>
         <artifactId>google-cloud-redis</artifactId>
         <version>0.116.1-alpha-SNAPSHOT</version><!-- {x-version-update:google-cloud-redis:current} -->
-      </dependency>
-      <dependency>
-        <groupId>com.google.cloud</groupId>
-        <artifactId>google-cloud-core-grpc</artifactId>
-        <version>${google.core-grpc.version}</version>
       </dependency>
 
       <!-- TODO(chingor): Remove this when protobuf-java-util and gax-httpjson converge -->
@@ -168,6 +162,11 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>animal-sniffer-annotations</artifactId>
         <version>${animal-sniffer.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.cloud</groupId>
+        <artifactId>google-cloud-core</artifactId>
+        <version>1.91.2</version>
       </dependency>
 
       <dependency>
