@@ -47,4 +47,7 @@ common_templates = gcp.CommonTemplates()
 templates = common_templates.java_library()
 s.copy(templates, excludes=[
     'README.md',
+    '.kokoro/continuous/integration.cfg',
+    '.kokoro/nightly/integration.cfg',
+    '.kokoro/presubmit/integration.cfg'
 ])
