@@ -136,9 +136,9 @@
         <groupId>com.google.protobuf</groupId>
         <artifactId>protobuf-bom</artifactId>
         <version>${protobuf.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
-      <type>pom</type>
-      <scope>import</scope>
 
       <dependency>
         <groupId>com.google.api</groupId>
