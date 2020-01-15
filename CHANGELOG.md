@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.117.2](https://www.github.com/googleapis/java-redis/compare/v0.117.1...v0.117.2) (2020-01-15)
+
+
+### Dependencies
+
+* update dependency org.threeten:threetenbp to v1.4.1 ([15b129e](https://www.github.com/googleapis/java-redis/commit/15b129ec794b2d73fe727f45ac08cba4fd0eff25))
+
 ### [0.117.1](https://www.github.com/googleapis/java-redis/compare/v0.117.0...v0.117.1) (2020-01-07)
 
 
