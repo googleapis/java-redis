@@ -47,7 +47,6 @@ public class ITSystemTest {
   private static final String LOCATION = "us-central1";
   private static final String AUTHORIZED_NETWORK =
       "projects/" + PROJECT_ID + "/global/networks/" + NETWORK;
-
   private static final Instance.Tier TIER = Instance.Tier.BASIC;
   private static final LocationName PARENT = LocationName.of(PROJECT_ID, LOCATION);
   private static final InstanceName INSTANCE_NAME = InstanceName.of(PROJECT_ID, LOCATION, INSTANCE);
@@ -83,14 +82,13 @@ public class ITSystemTest {
 
   @Test
   public void testListInstances() {
-    CloudRedisClient.ListInstancesPagedResponse pagedListResponse = client.listInstances(PARENT);
-    List<Instance> resources = Lists.newArrayList(pagedListResponse.iterateAll());
-    int instance = 0, count = 0;
-    while (instance < resources.size()) {
-      count++;
-      instance++;
+    List<Instance> instances = Lists.newArrayList(client.listInstances(PARENT).iterateAll());
+    for (Instance instance : instances) {
+      if (INSTANCE_NAME.toString().equals(instance.getName())) {
+        assertEquals(TIER, instance.getTier());
+        assertEquals(INSTANCE_NAME.toString(), instance.getName());
+      }
     }
-    assertEquals(count, resources.size());
   }
 
   @Test
