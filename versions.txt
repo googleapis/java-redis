@@ -5,4 +5,4 @@ proto-google-cloud-redis-v1:0.85.0:0.85.0
 proto-google-cloud-redis-v1beta1:0.85.0:0.85.0
 grpc-google-cloud-redis-v1beta1:0.85.0:0.85.0
 grpc-google-cloud-redis-v1:0.85.0:0.85.0
-google-cloud-redis:0.120.0:0.120.0
+google-cloud-redis:1.0.0:1.0.0
