@@ -18,11 +18,13 @@ package com.google.cloud.redis.v1.it;
 
 import static org.junit.Assert.assertEquals;
 
+import com.google.api.gax.longrunning.OperationFuture;
 import com.google.cloud.ServiceOptions;
 import com.google.cloud.redis.v1.CloudRedisClient;
 import com.google.cloud.redis.v1.Instance;
 import com.google.cloud.redis.v1.InstanceName;
 import com.google.cloud.redis.v1.LocationName;
+import com.google.cloud.redis.v1.OperationMetadata;
 import com.google.cloud.redis.v1.UpdateInstanceRequest;
 import com.google.common.collect.Lists;
 import com.google.protobuf.FieldMask;
@@ -103,7 +105,14 @@ public class ITSystemTest {
             .build();
     UpdateInstanceRequest updateInstanceRequest =
         UpdateInstanceRequest.newBuilder().setInstance(instance).setUpdateMask(updateMask).build();
-    Instance actualInstance = client.updateInstanceAsync(updateInstanceRequest).get();
-    assertEquals(memorySizeGb, actualInstance.getMemorySizeGb());
+    OperationFuture<Instance, OperationMetadata> future =
+        client.updateInstanceAsync(updateInstanceRequest);
+    while (true) {
+      if (future.isDone()) {
+        Instance updatedInstance = future.get();
+        assertEquals(memorySizeGb, updatedInstance.getMemorySizeGb());
+        break;
+      }
+    }
   }
 }
