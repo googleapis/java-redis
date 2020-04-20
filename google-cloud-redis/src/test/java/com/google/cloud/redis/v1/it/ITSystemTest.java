@@ -63,7 +63,7 @@ public class ITSystemTest {
                 .getInstanceSettings()
                 .getRetrySettings()
                 .toBuilder()
-                .setTotalTimeout(Duration.ofSeconds(60))
+                .setTotalTimeout(Duration.ofSeconds(900))
                 .build());
     CloudRedisSettings cloudRedisSettings = cloudRedisSettingsBuilder.build();
     client = CloudRedisClient.create(cloudRedisSettings);
