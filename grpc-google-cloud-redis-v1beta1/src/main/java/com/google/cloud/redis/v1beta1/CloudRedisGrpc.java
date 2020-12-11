@@ -22,7 +22,24 @@ import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
-/** */
+/**
+ *
+ *
+ * <pre>
+ * Configures and manages Cloud Memorystore for Redis instances
+ * Google Cloud Memorystore for Redis v1beta1
+ * The `redis.googleapis.com` service implements the Google Cloud Memorystore
+ * for Redis API and defines the following resource model for managing Redis
+ * instances:
+ * * The service works with a collection of cloud projects, named: `/projects/&#42;`
+ * * Each project has a collection of available locations, named: `/locations/&#42;`
+ * * Each location has a collection of Redis instances, named: `/instances/&#42;`
+ * * As such, Redis instances are resources of the form:
+ *   `/projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ * Note that location_id must be refering to a GCP `region`; for example:
+ * * `projects/redpepper-1290/locations/us-central1/instances/my-redis`
+ * </pre>
+ */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler",
     comments = "Source: google/cloud/redis/v1beta1/cloud_redis.proto")
@@ -461,10 +478,38 @@ public final class CloudRedisGrpc {
     return CloudRedisFutureStub.newStub(factory, channel);
   }
 
-  /** */
+  /**
+   *
+   *
+   * <pre>
+   * Configures and manages Cloud Memorystore for Redis instances
+   * Google Cloud Memorystore for Redis v1beta1
+   * The `redis.googleapis.com` service implements the Google Cloud Memorystore
+   * for Redis API and defines the following resource model for managing Redis
+   * instances:
+   * * The service works with a collection of cloud projects, named: `/projects/&#42;`
+   * * Each project has a collection of available locations, named: `/locations/&#42;`
+   * * Each location has a collection of Redis instances, named: `/instances/&#42;`
+   * * As such, Redis instances are resources of the form:
+   *   `/projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+   * Note that location_id must be refering to a GCP `region`; for example:
+   * * `projects/redpepper-1290/locations/us-central1/instances/my-redis`
+   * </pre>
+   */
   public abstract static class CloudRedisImplBase implements io.grpc.BindableService {
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Lists all Redis instances owned by a project in either the specified
+     * location (region) or all locations.
+     * The location should have the following format:
+     * * `projects/{project_id}/locations/{location_id}`
+     * If `location_id` is specified as `-` (wildcard), then all regions
+     * available to the project are queried, and the results are aggregated.
+     * </pre>
+     */
     public void listInstances(
         com.google.cloud.redis.v1beta1.ListInstancesRequest request,
         io.grpc.stub.StreamObserver<com.google.cloud.redis.v1beta1.ListInstancesResponse>
@@ -472,56 +517,126 @@ public final class CloudRedisGrpc {
       asyncUnimplementedUnaryCall(getListInstancesMethod(), responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Gets the details of a specific Redis instance.
+     * </pre>
+     */
     public void getInstance(
         com.google.cloud.redis.v1beta1.GetInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.cloud.redis.v1beta1.Instance> responseObserver) {
       asyncUnimplementedUnaryCall(getGetInstanceMethod(), responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Creates a Redis instance based on the specified tier and memory size.
+     * By default, the instance is accessible from the project's
+     * [default network](https://cloud.google.com/vpc/docs/vpc).
+     * The creation is executed asynchronously and callers may check the returned
+     * operation to track its progress. Once the operation is completed the Redis
+     * instance will be fully functional. Completed longrunning.Operation will
+     * contain the new instance object in the response field.
+     * The returned operation is automatically deleted after a few hours, so there
+     * is no need to call DeleteOperation.
+     * </pre>
+     */
     public void createInstance(
         com.google.cloud.redis.v1beta1.CreateInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       asyncUnimplementedUnaryCall(getCreateInstanceMethod(), responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Updates the metadata and configuration of a specific Redis instance.
+     * Completed longrunning.Operation will contain the new instance object
+     * in the response field. The returned operation is automatically deleted
+     * after a few hours, so there is no need to call DeleteOperation.
+     * </pre>
+     */
     public void updateInstance(
         com.google.cloud.redis.v1beta1.UpdateInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       asyncUnimplementedUnaryCall(getUpdateInstanceMethod(), responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Upgrades Redis instance to the newer Redis version specified in the
+     * request.
+     * </pre>
+     */
     public void upgradeInstance(
         com.google.cloud.redis.v1beta1.UpgradeInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       asyncUnimplementedUnaryCall(getUpgradeInstanceMethod(), responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Import a Redis RDB snapshot file from Cloud Storage into a Redis instance.
+     * Redis may stop serving during this operation. Instance state will be
+     * IMPORTING for entire operation. When complete, the instance will contain
+     * only data from the imported file.
+     * The returned operation is automatically deleted after a few hours, so
+     * there is no need to call DeleteOperation.
+     * </pre>
+     */
     public void importInstance(
         com.google.cloud.redis.v1beta1.ImportInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       asyncUnimplementedUnaryCall(getImportInstanceMethod(), responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Export Redis instance data into a Redis RDB format file in Cloud Storage.
+     * Redis will continue serving during this operation.
+     * The returned operation is automatically deleted after a few hours, so
+     * there is no need to call DeleteOperation.
+     * </pre>
+     */
     public void exportInstance(
         com.google.cloud.redis.v1beta1.ExportInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       asyncUnimplementedUnaryCall(getExportInstanceMethod(), responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Initiates a failover of the master node to current replica node for a
+     * specific STANDARD tier Cloud Memorystore for Redis instance.
+     * </pre>
+     */
     public void failoverInstance(
         com.google.cloud.redis.v1beta1.FailoverInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
       asyncUnimplementedUnaryCall(getFailoverInstanceMethod(), responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Deletes a specific Redis instance.  Instance stops serving and data is
+     * deleted.
+     * </pre>
+     */
     public void deleteInstance(
         com.google.cloud.redis.v1beta1.DeleteInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -590,7 +705,24 @@ public final class CloudRedisGrpc {
     }
   }
 
-  /** */
+  /**
+   *
+   *
+   * <pre>
+   * Configures and manages Cloud Memorystore for Redis instances
+   * Google Cloud Memorystore for Redis v1beta1
+   * The `redis.googleapis.com` service implements the Google Cloud Memorystore
+   * for Redis API and defines the following resource model for managing Redis
+   * instances:
+   * * The service works with a collection of cloud projects, named: `/projects/&#42;`
+   * * Each project has a collection of available locations, named: `/locations/&#42;`
+   * * Each location has a collection of Redis instances, named: `/instances/&#42;`
+   * * As such, Redis instances are resources of the form:
+   *   `/projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+   * Note that location_id must be refering to a GCP `region`; for example:
+   * * `projects/redpepper-1290/locations/us-central1/instances/my-redis`
+   * </pre>
+   */
   public static final class CloudRedisStub extends io.grpc.stub.AbstractAsyncStub<CloudRedisStub> {
     private CloudRedisStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
@@ -601,7 +733,18 @@ public final class CloudRedisGrpc {
       return new CloudRedisStub(channel, callOptions);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Lists all Redis instances owned by a project in either the specified
+     * location (region) or all locations.
+     * The location should have the following format:
+     * * `projects/{project_id}/locations/{location_id}`
+     * If `location_id` is specified as `-` (wildcard), then all regions
+     * available to the project are queried, and the results are aggregated.
+     * </pre>
+     */
     public void listInstances(
         com.google.cloud.redis.v1beta1.ListInstancesRequest request,
         io.grpc.stub.StreamObserver<com.google.cloud.redis.v1beta1.ListInstancesResponse>
@@ -612,7 +755,13 @@ public final class CloudRedisGrpc {
           responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Gets the details of a specific Redis instance.
+     * </pre>
+     */
     public void getInstance(
         com.google.cloud.redis.v1beta1.GetInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.cloud.redis.v1beta1.Instance> responseObserver) {
@@ -622,7 +771,21 @@ public final class CloudRedisGrpc {
           responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Creates a Redis instance based on the specified tier and memory size.
+     * By default, the instance is accessible from the project's
+     * [default network](https://cloud.google.com/vpc/docs/vpc).
+     * The creation is executed asynchronously and callers may check the returned
+     * operation to track its progress. Once the operation is completed the Redis
+     * instance will be fully functional. Completed longrunning.Operation will
+     * contain the new instance object in the response field.
+     * The returned operation is automatically deleted after a few hours, so there
+     * is no need to call DeleteOperation.
+     * </pre>
+     */
     public void createInstance(
         com.google.cloud.redis.v1beta1.CreateInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -632,7 +795,16 @@ public final class CloudRedisGrpc {
           responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Updates the metadata and configuration of a specific Redis instance.
+     * Completed longrunning.Operation will contain the new instance object
+     * in the response field. The returned operation is automatically deleted
+     * after a few hours, so there is no need to call DeleteOperation.
+     * </pre>
+     */
     public void updateInstance(
         com.google.cloud.redis.v1beta1.UpdateInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -642,7 +814,14 @@ public final class CloudRedisGrpc {
           responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Upgrades Redis instance to the newer Redis version specified in the
+     * request.
+     * </pre>
+     */
     public void upgradeInstance(
         com.google.cloud.redis.v1beta1.UpgradeInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -652,7 +831,18 @@ public final class CloudRedisGrpc {
           responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Import a Redis RDB snapshot file from Cloud Storage into a Redis instance.
+     * Redis may stop serving during this operation. Instance state will be
+     * IMPORTING for entire operation. When complete, the instance will contain
+     * only data from the imported file.
+     * The returned operation is automatically deleted after a few hours, so
+     * there is no need to call DeleteOperation.
+     * </pre>
+     */
     public void importInstance(
         com.google.cloud.redis.v1beta1.ImportInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -662,7 +852,16 @@ public final class CloudRedisGrpc {
           responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Export Redis instance data into a Redis RDB format file in Cloud Storage.
+     * Redis will continue serving during this operation.
+     * The returned operation is automatically deleted after a few hours, so
+     * there is no need to call DeleteOperation.
+     * </pre>
+     */
     public void exportInstance(
         com.google.cloud.redis.v1beta1.ExportInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -672,7 +871,14 @@ public final class CloudRedisGrpc {
           responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Initiates a failover of the master node to current replica node for a
+     * specific STANDARD tier Cloud Memorystore for Redis instance.
+     * </pre>
+     */
     public void failoverInstance(
         com.google.cloud.redis.v1beta1.FailoverInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -682,7 +888,14 @@ public final class CloudRedisGrpc {
           responseObserver);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Deletes a specific Redis instance.  Instance stops serving and data is
+     * deleted.
+     * </pre>
+     */
     public void deleteInstance(
         com.google.cloud.redis.v1beta1.DeleteInstanceRequest request,
         io.grpc.stub.StreamObserver<com.google.longrunning.Operation> responseObserver) {
@@ -693,7 +906,24 @@ public final class CloudRedisGrpc {
     }
   }
 
-  /** */
+  /**
+   *
+   *
+   * <pre>
+   * Configures and manages Cloud Memorystore for Redis instances
+   * Google Cloud Memorystore for Redis v1beta1
+   * The `redis.googleapis.com` service implements the Google Cloud Memorystore
+   * for Redis API and defines the following resource model for managing Redis
+   * instances:
+   * * The service works with a collection of cloud projects, named: `/projects/&#42;`
+   * * Each project has a collection of available locations, named: `/locations/&#42;`
+   * * Each location has a collection of Redis instances, named: `/instances/&#42;`
+   * * As such, Redis instances are resources of the form:
+   *   `/projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+   * Note that location_id must be refering to a GCP `region`; for example:
+   * * `projects/redpepper-1290/locations/us-central1/instances/my-redis`
+   * </pre>
+   */
   public static final class CloudRedisBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<CloudRedisBlockingStub> {
     private CloudRedisBlockingStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
@@ -706,63 +936,161 @@ public final class CloudRedisGrpc {
       return new CloudRedisBlockingStub(channel, callOptions);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Lists all Redis instances owned by a project in either the specified
+     * location (region) or all locations.
+     * The location should have the following format:
+     * * `projects/{project_id}/locations/{location_id}`
+     * If `location_id` is specified as `-` (wildcard), then all regions
+     * available to the project are queried, and the results are aggregated.
+     * </pre>
+     */
     public com.google.cloud.redis.v1beta1.ListInstancesResponse listInstances(
         com.google.cloud.redis.v1beta1.ListInstancesRequest request) {
       return blockingUnaryCall(getChannel(), getListInstancesMethod(), getCallOptions(), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Gets the details of a specific Redis instance.
+     * </pre>
+     */
     public com.google.cloud.redis.v1beta1.Instance getInstance(
         com.google.cloud.redis.v1beta1.GetInstanceRequest request) {
       return blockingUnaryCall(getChannel(), getGetInstanceMethod(), getCallOptions(), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Creates a Redis instance based on the specified tier and memory size.
+     * By default, the instance is accessible from the project's
+     * [default network](https://cloud.google.com/vpc/docs/vpc).
+     * The creation is executed asynchronously and callers may check the returned
+     * operation to track its progress. Once the operation is completed the Redis
+     * instance will be fully functional. Completed longrunning.Operation will
+     * contain the new instance object in the response field.
+     * The returned operation is automatically deleted after a few hours, so there
+     * is no need to call DeleteOperation.
+     * </pre>
+     */
     public com.google.longrunning.Operation createInstance(
         com.google.cloud.redis.v1beta1.CreateInstanceRequest request) {
       return blockingUnaryCall(getChannel(), getCreateInstanceMethod(), getCallOptions(), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Updates the metadata and configuration of a specific Redis instance.
+     * Completed longrunning.Operation will contain the new instance object
+     * in the response field. The returned operation is automatically deleted
+     * after a few hours, so there is no need to call DeleteOperation.
+     * </pre>
+     */
     public com.google.longrunning.Operation updateInstance(
         com.google.cloud.redis.v1beta1.UpdateInstanceRequest request) {
       return blockingUnaryCall(getChannel(), getUpdateInstanceMethod(), getCallOptions(), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Upgrades Redis instance to the newer Redis version specified in the
+     * request.
+     * </pre>
+     */
     public com.google.longrunning.Operation upgradeInstance(
         com.google.cloud.redis.v1beta1.UpgradeInstanceRequest request) {
       return blockingUnaryCall(getChannel(), getUpgradeInstanceMethod(), getCallOptions(), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Import a Redis RDB snapshot file from Cloud Storage into a Redis instance.
+     * Redis may stop serving during this operation. Instance state will be
+     * IMPORTING for entire operation. When complete, the instance will contain
+     * only data from the imported file.
+     * The returned operation is automatically deleted after a few hours, so
+     * there is no need to call DeleteOperation.
+     * </pre>
+     */
     public com.google.longrunning.Operation importInstance(
         com.google.cloud.redis.v1beta1.ImportInstanceRequest request) {
       return blockingUnaryCall(getChannel(), getImportInstanceMethod(), getCallOptions(), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Export Redis instance data into a Redis RDB format file in Cloud Storage.
+     * Redis will continue serving during this operation.
+     * The returned operation is automatically deleted after a few hours, so
+     * there is no need to call DeleteOperation.
+     * </pre>
+     */
     public com.google.longrunning.Operation exportInstance(
         com.google.cloud.redis.v1beta1.ExportInstanceRequest request) {
       return blockingUnaryCall(getChannel(), getExportInstanceMethod(), getCallOptions(), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Initiates a failover of the master node to current replica node for a
+     * specific STANDARD tier Cloud Memorystore for Redis instance.
+     * </pre>
+     */
     public com.google.longrunning.Operation failoverInstance(
         com.google.cloud.redis.v1beta1.FailoverInstanceRequest request) {
       return blockingUnaryCall(
           getChannel(), getFailoverInstanceMethod(), getCallOptions(), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Deletes a specific Redis instance.  Instance stops serving and data is
+     * deleted.
+     * </pre>
+     */
     public com.google.longrunning.Operation deleteInstance(
         com.google.cloud.redis.v1beta1.DeleteInstanceRequest request) {
       return blockingUnaryCall(getChannel(), getDeleteInstanceMethod(), getCallOptions(), request);
     }
   }
 
-  /** */
+  /**
+   *
+   *
+   * <pre>
+   * Configures and manages Cloud Memorystore for Redis instances
+   * Google Cloud Memorystore for Redis v1beta1
+   * The `redis.googleapis.com` service implements the Google Cloud Memorystore
+   * for Redis API and defines the following resource model for managing Redis
+   * instances:
+   * * The service works with a collection of cloud projects, named: `/projects/&#42;`
+   * * Each project has a collection of available locations, named: `/locations/&#42;`
+   * * Each location has a collection of Redis instances, named: `/instances/&#42;`
+   * * As such, Redis instances are resources of the form:
+   *   `/projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+   * Note that location_id must be refering to a GCP `region`; for example:
+   * * `projects/redpepper-1290/locations/us-central1/instances/my-redis`
+   * </pre>
+   */
   public static final class CloudRedisFutureStub
       extends io.grpc.stub.AbstractFutureStub<CloudRedisFutureStub> {
     private CloudRedisFutureStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
@@ -774,7 +1102,18 @@ public final class CloudRedisGrpc {
       return new CloudRedisFutureStub(channel, callOptions);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Lists all Redis instances owned by a project in either the specified
+     * location (region) or all locations.
+     * The location should have the following format:
+     * * `projects/{project_id}/locations/{location_id}`
+     * If `location_id` is specified as `-` (wildcard), then all regions
+     * available to the project are queried, and the results are aggregated.
+     * </pre>
+     */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.cloud.redis.v1beta1.ListInstancesResponse>
         listInstances(com.google.cloud.redis.v1beta1.ListInstancesRequest request) {
@@ -782,7 +1121,13 @@ public final class CloudRedisGrpc {
           getChannel().newCall(getListInstancesMethod(), getCallOptions()), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Gets the details of a specific Redis instance.
+     * </pre>
+     */
     public com.google.common.util.concurrent.ListenableFuture<
             com.google.cloud.redis.v1beta1.Instance>
         getInstance(com.google.cloud.redis.v1beta1.GetInstanceRequest request) {
@@ -790,49 +1135,113 @@ public final class CloudRedisGrpc {
           getChannel().newCall(getGetInstanceMethod(), getCallOptions()), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Creates a Redis instance based on the specified tier and memory size.
+     * By default, the instance is accessible from the project's
+     * [default network](https://cloud.google.com/vpc/docs/vpc).
+     * The creation is executed asynchronously and callers may check the returned
+     * operation to track its progress. Once the operation is completed the Redis
+     * instance will be fully functional. Completed longrunning.Operation will
+     * contain the new instance object in the response field.
+     * The returned operation is automatically deleted after a few hours, so there
+     * is no need to call DeleteOperation.
+     * </pre>
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         createInstance(com.google.cloud.redis.v1beta1.CreateInstanceRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getCreateInstanceMethod(), getCallOptions()), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Updates the metadata and configuration of a specific Redis instance.
+     * Completed longrunning.Operation will contain the new instance object
+     * in the response field. The returned operation is automatically deleted
+     * after a few hours, so there is no need to call DeleteOperation.
+     * </pre>
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         updateInstance(com.google.cloud.redis.v1beta1.UpdateInstanceRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getUpdateInstanceMethod(), getCallOptions()), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Upgrades Redis instance to the newer Redis version specified in the
+     * request.
+     * </pre>
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         upgradeInstance(com.google.cloud.redis.v1beta1.UpgradeInstanceRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getUpgradeInstanceMethod(), getCallOptions()), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Import a Redis RDB snapshot file from Cloud Storage into a Redis instance.
+     * Redis may stop serving during this operation. Instance state will be
+     * IMPORTING for entire operation. When complete, the instance will contain
+     * only data from the imported file.
+     * The returned operation is automatically deleted after a few hours, so
+     * there is no need to call DeleteOperation.
+     * </pre>
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         importInstance(com.google.cloud.redis.v1beta1.ImportInstanceRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getImportInstanceMethod(), getCallOptions()), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Export Redis instance data into a Redis RDB format file in Cloud Storage.
+     * Redis will continue serving during this operation.
+     * The returned operation is automatically deleted after a few hours, so
+     * there is no need to call DeleteOperation.
+     * </pre>
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         exportInstance(com.google.cloud.redis.v1beta1.ExportInstanceRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getExportInstanceMethod(), getCallOptions()), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Initiates a failover of the master node to current replica node for a
+     * specific STANDARD tier Cloud Memorystore for Redis instance.
+     * </pre>
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         failoverInstance(com.google.cloud.redis.v1beta1.FailoverInstanceRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getFailoverInstanceMethod(), getCallOptions()), request);
     }
 
-    /** */
+    /**
+     *
+     *
+     * <pre>
+     * Deletes a specific Redis instance.  Instance stops serving and data is
+     * deleted.
+     * </pre>
+     */
     public com.google.common.util.concurrent.ListenableFuture<com.google.longrunning.Operation>
         deleteInstance(com.google.cloud.redis.v1beta1.DeleteInstanceRequest request) {
       return futureUnaryCall(
