@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://www.github.com/googleapis/java-redis/compare/v1.2.2...v1.3.0) (2021-08-04)
+
+
+### Features
+
+* configure initial sp version ([#466](https://www.github.com/googleapis/java-redis/issues/466)) ([a81ab83](https://www.github.com/googleapis/java-redis/commit/a81ab83dcea6bb78302936f37de04cc9c8b05849))
+
 ### [1.2.2](https://www.github.com/googleapis/java-redis/compare/v1.2.1...v1.2.2) (2021-07-05)
 
 
