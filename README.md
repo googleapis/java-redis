@@ -41,7 +41,7 @@ If you are using Maven without BOM, add this to your dependencies:
 <dependency>
   <groupId>com.google.cloud</groupId>
   <artifactId>google-cloud-redis</artifactId>
-  <version>1.2.2</version>
+  <version>2.0.0</version>
 </dependency>
 
 ```
@@ -56,13 +56,13 @@ compile 'com.google.cloud:google-cloud-redis'
 If you are using Gradle without BOM, add this to your dependencies
 
 ```Groovy
-compile 'com.google.cloud:google-cloud-redis:1.2.2'
+compile 'com.google.cloud:google-cloud-redis:2.0.0'
 ```
 
 If you are using SBT, add this to your dependencies
 
 ```Scala
-libraryDependencies += "com.google.cloud" % "google-cloud-redis" % "1.2.2"
+libraryDependencies += "com.google.cloud" % "google-cloud-redis" % "2.0.0"
 ```
 
 ## Authentication
