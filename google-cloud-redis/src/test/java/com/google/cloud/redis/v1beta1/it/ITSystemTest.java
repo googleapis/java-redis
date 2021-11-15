@@ -81,7 +81,6 @@ public class ITSystemTest {
             .build();
     client.createInstanceAsync(PARENT, INSTANCE, instance).get();
     LOG.info("redis instance created successfully.");
-
   }
 
   @AfterClass
@@ -93,16 +92,18 @@ public class ITSystemTest {
   }
 
   public static void cleanUpOldInstances() throws ParseException {
-   Calendar calendar = Calendar.getInstance();
+    Calendar calendar = Calendar.getInstance();
     calendar.add(Calendar.DAY_OF_MONTH, -1);
     Timestamp cutoff = Timestamp.of(calendar.getTime());
 
     List<Instance> instances = Lists.newArrayList(client.listInstances(PARENT).iterateAll());
     for (Instance old_instance : instances) {
-      Timestamp createdAt = Timestamp.ofTimeSecondsAndNanos(old_instance.getCreateTime().getSeconds(), old_instance.getCreateTime().getNanos());
+      Timestamp createdAt =
+          Timestamp.ofTimeSecondsAndNanos(
+              old_instance.getCreateTime().getSeconds(), old_instance.getCreateTime().getNanos());
       if (createdAt.compareTo(cutoff) < 0) {
         client.deleteInstanceAsync(old_instance.getName());
-        LOG.info("redis instance "+ old_instance.getName() + " deleted successfully." );
+        LOG.info("redis instance " + old_instance.getName() + " deleted successfully.");
       }
     }
   }
