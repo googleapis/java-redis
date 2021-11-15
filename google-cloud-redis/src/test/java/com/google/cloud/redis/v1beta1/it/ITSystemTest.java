@@ -99,7 +99,7 @@ public class ITSystemTest {
 
     List<Instance> instances = Lists.newArrayList(client.listInstances(PARENT).iterateAll());
     for (Instance old_instance : instances) {
-      Timestamp createdAt = com.google.cloud.Timestamp.ofTimeSecondsAndNanos(old_instance.getCreateTime().getSeconds(), old_instance.getCreateTime().getNanos());
+      Timestamp createdAt = Timestamp.ofTimeSecondsAndNanos(old_instance.getCreateTime().getSeconds(), old_instance.getCreateTime().getNanos());
       if (createdAt.compareTo(cutoff) < 0) {
         client.deleteInstanceAsync(old_instance.getName());
         LOG.info("redis instance "+ old_instance.getName() + " deleted successfully." );
@@ -118,7 +118,6 @@ public class ITSystemTest {
   public void testListInstances() {
     List<Instance> instances = Lists.newArrayList(client.listInstances(PARENT).iterateAll());
     for (Instance instance : instances) {
-      System.out.println(instance.getName());
       if (INSTANCE_NAME.toString().equals(instance.getName())) {
         assertEquals(TIER, instance.getTier());
         assertEquals(INSTANCE_NAME.toString(), instance.getName());
