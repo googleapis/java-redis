@@ -67,8 +67,6 @@ public class ITSystemTest {
                 .build());
     CloudRedisSettings cloudRedisSettings = cloudRedisSettingsBuilder.build();
     client = CloudRedisClient.create(cloudRedisSettings);
-    /* Clean up old instances that were not deleted. */
-    com.google.cloud.redis.v1.it.ITSystemTest.cleanUpOldInstances();
     /* Creates a Redis instance based on the specified tier and memory size. */
     Instance instance =
         Instance.newBuilder()
