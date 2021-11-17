@@ -38,6 +38,7 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 @javax.annotation.Generated(
     value = "by gRPC proto compiler",
     comments = "Source: google/cloud/redis/v1/cloud_redis.proto")
+@io.grpc.stub.annotations.GrpcGenerated
 public final class CloudRedisGrpc {
 
   private CloudRedisGrpc() {}
