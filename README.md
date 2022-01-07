@@ -49,7 +49,7 @@ If you are using Maven without BOM, add this to your dependencies:
 If you are using Gradle 5.x or later, add this to your dependencies
 
 ```Groovy
-implementation platform('com.google.cloud:libraries-bom:24.1.0')
+implementation platform('com.google.cloud:libraries-bom:24.1.2')
 
 implementation 'com.google.cloud:google-cloud-redis'
 ```
@@ -223,4 +223,3 @@ Java is a registered trademark of Oracle and/or its affiliates.
 [apilibs]: https://cloud.google.com/apis/docs/client-libraries-explained#google_api_client_libraries
 [oracle]: https://www.oracle.com/java/technologies/java-se-support-roadmap.html
 [g-c-j]: http://github.com/googleapis/google-cloud-java
-
