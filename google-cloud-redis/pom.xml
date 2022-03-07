@@ -15,6 +15,7 @@
   </parent>
   <properties>
     <site.installationModule>google-cloud-redis</site.installationModule>
+    <surefire.timeout>3600</surefire.timeout>
   </properties>
   <dependencies>
     <dependency>
