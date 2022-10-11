@@ -108,6 +108,7 @@ public interface MaintenanceScheduleOrBuilder
    *
    * <code>bool can_reschedule = 3 [deprecated = true];</code>
    *
+   * @deprecated
    * @return The canReschedule.
    */
   @java.lang.Deprecated
