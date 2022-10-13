@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.4.2](https://github.com/googleapis/java-redis/compare/v2.4.1...v2.4.2) (2022-10-12)
+
+
+### Dependencies
+
+* Regenerating with new Protobuf (2.4.x) ([#728](https://github.com/googleapis/java-redis/issues/728)) ([9766308](https://github.com/googleapis/java-redis/commit/9766308f76039968fd0d1382ca6b064567d72fb2))
+
 ### [2.4.1](https://github.com/googleapis/java-redis/compare/v2.4.0...v2.4.1) (2022-04-15)
 
 
