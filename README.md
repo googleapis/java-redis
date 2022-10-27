@@ -56,13 +56,13 @@ implementation 'com.google.cloud:google-cloud-redis'
 If you are using Gradle without BOM, add this to your dependencies:
 
 ```Groovy
-implementation 'com.google.cloud:google-cloud-redis:2.6.5'
+implementation 'com.google.cloud:google-cloud-redis:2.8.0'
 ```
 
 If you are using SBT, add this to your dependencies:
 
 ```Scala
-libraryDependencies += "com.google.cloud" % "google-cloud-redis" % "2.6.5"
+libraryDependencies += "com.google.cloud" % "google-cloud-redis" % "2.8.0"
 ```
 
 ## Authentication
